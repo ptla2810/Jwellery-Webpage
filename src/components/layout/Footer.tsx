@@ -14,7 +14,7 @@ export async function Footer() {
     <footer className="mt-24 bg-ink text-ivory">
       <div className="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
-          <p className="font-display text-3xl">{store.name}</p>
+          <p className="font-display text-3xl uppercase tracking-[0.24em]">{store.name.split(" ")[0]}</p>
           <p className="mt-2 max-w-xs text-sm text-ivory/60">{store.tagline}</p>
           <p className="mt-8 eyebrow text-gold-300">Join our list</p>
           <p className="mt-2 text-sm text-ivory/60">New collections, styling notes and private previews.</p>
@@ -61,7 +61,7 @@ export async function Footer() {
       </div>
       <div className="border-t border-ivory/10">
         <div className="container-x flex flex-col gap-3 py-6 text-xs text-ivory/50 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} {store.name}. Demo storefront — product imagery is illustrative.</p>
+          <p>© {new Date().getFullYear()} {store.name}. Demo storefront — photography is representative (Unsplash).</p>
           <ul className="flex flex-wrap gap-4">
             <li><Link className={link} href="/pages/privacy-policy">Privacy</Link></li>
             <li><Link className={link} href="/pages/terms-of-service">Terms</Link></li>

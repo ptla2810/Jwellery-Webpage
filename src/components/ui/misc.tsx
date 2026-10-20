@@ -8,7 +8,7 @@ export function Price({ price, compareAt, className, size = "md" }: { price: num
   const off = compareAt && compareAt > price ? Math.floor(((compareAt - price) / compareAt) * 100) : 0;
   return (
     <div className={cn("flex flex-wrap items-baseline gap-x-2", className)}>
-      <span data-testid="price" className={cn("font-semibold text-ink", size === "lg" ? "text-2xl" : size === "sm" ? "text-sm" : "text-base")}>{formatINR(price)}</span>
+      <span data-testid="price" className={cn("font-medium tracking-wide text-ink", size === "lg" ? "text-2xl" : size === "sm" ? "text-sm" : "text-base")}>{formatINR(price)}</span>
       {off > 0 && (
         <>
           <span className={cn("text-muted line-through", size === "lg" ? "text-base" : "text-xs")}>
@@ -31,7 +31,7 @@ export function Badge({ children, tone = "neutral", className }: { children: Rea
     danger: "bg-danger/10 text-danger",
     dark: "bg-ink text-ivory",
   };
-  return <span className={cn("inline-flex items-center rounded-[var(--radius-sm)] px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-[0.12em]", tones[tone], className)}>{children}</span>;
+  return <span className={cn("inline-flex items-center rounded-[var(--radius-sm)] px-2 py-1 text-[0.6rem] font-semibold uppercase leading-none tracking-[0.16em]", tones[tone], className)}>{children}</span>;
 }
 
 export function Breadcrumbs({ items }: { items: { label: string; href?: string }[] }) {
@@ -98,8 +98,8 @@ export function SectionHeading({ eyebrow, title, action, className, align = "lef
   return (
     <div className={cn("mb-8 flex flex-col gap-3 md:mb-10", align === "center" ? "items-center text-center" : "md:flex-row md:items-end md:justify-between", className)}>
       <div>
-        {eyebrow && <p className="eyebrow mb-2">{eyebrow}</p>}
-        <h2 className="text-3xl leading-tight md:text-[2.6rem]">{title}</h2>
+        {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
+        <h2 className="text-[2rem] leading-tight md:text-[2.8rem]">{title}</h2>
       </div>
       {action}
     </div>

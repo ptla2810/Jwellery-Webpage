@@ -9,30 +9,40 @@ import { cn } from "@/lib/cn";
 
 type Slide = { id: string; eyebrow: string | null; title: string; subtitle: string | null; ctaLabel: string | null; ctaHref: string | null; imageUrl: string; imageAlt: string };
 
+/** Editorial split hero: copy on a quiet panel beside a full-height photograph (photo with overlaid copy on mobile). */
 export function HeroSlider({ slides }: { slides: Slide[] }) {
   const [i, setI] = useState(0);
   const [paused, setPaused] = useState(false);
   useEffect(() => {
     if (slides.length < 2 || paused) return;
-    const t = setInterval(() => setI((x) => (x + 1) % slides.length), 6500);
+    const t = setInterval(() => setI((x) => (x + 1) % slides.length), 7000);
     return () => clearInterval(t);
   }, [slides.length, paused]);
   if (!slides.length) return null;
-  const dark = (s: Slide) => !/hero-2|ivory|blush/.test(s.imageUrl);
+  const go = (d: 1 | -1) => setI((i + d + slides.length) % slides.length);
   return (
     <section aria-roledescription="carousel" aria-label="Featured" className="relative" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} onFocus={() => setPaused(true)} onBlur={() => setPaused(false)}>
-      <div className="relative h-[78vh] min-h-[520px] max-h-[760px] overflow-hidden bg-ink">
+      <div className="relative h-[82svh] min-h-[540px] max-h-[820px] overflow-hidden bg-cream">
         {slides.map((s, idx) => (
-          <div key={s.id} role="group" aria-roledescription="slide" aria-label={`${idx + 1} of ${slides.length}`} aria-hidden={idx !== i} className={cn("absolute inset-0 transition-opacity duration-1000", idx === i ? "opacity-100" : "pointer-events-none opacity-0")}>
-            <ProductImage src={s.imageUrl} alt={s.imageAlt} fill priority={idx === 0} sizes="100vw" className={cn("object-cover object-[70%_center] transition-transform duration-[8000ms]", idx === i && "scale-[1.04]")} />
-            <div className={cn("absolute inset-0", dark(s) ? "bg-ink/55 md:bg-transparent md:bg-gradient-to-r md:from-ink/70 md:via-ink/25 md:to-transparent" : "bg-ivory/70 md:bg-transparent md:bg-gradient-to-r md:from-ivory/85 md:via-ivory/40 md:to-transparent")} />
-            <div className="container-x relative flex h-full items-center">
-              <div className={cn("max-w-xl", idx === i && "animate-fade-up", dark(s) ? "text-ivory" : "text-ink")}>
-                {s.eyebrow && <p className={cn("eyebrow mb-4", dark(s) && "text-gold-300")}>{s.eyebrow}</p>}
-                <h1 className="text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-7xl">{s.title}</h1>
-                {s.subtitle && <p className={cn("mt-5 max-w-md text-base leading-relaxed", dark(s) ? "text-ivory/80" : "text-charcoal")}>{s.subtitle}</p>}
+          <div
+            key={s.id}
+            role="group"
+            aria-roledescription="slide"
+            aria-label={`${idx + 1} of ${slides.length}`}
+            aria-hidden={idx !== i}
+            className={cn("absolute inset-0 transition-opacity duration-1000 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]", idx === i ? "opacity-100" : "pointer-events-none opacity-0")}
+          >
+            <div className="absolute inset-0 overflow-hidden md:relative md:order-2">
+              <ProductImage src={s.imageUrl} alt={s.imageAlt} fill priority={idx === 0} sizes="(min-width:768px) 60vw, 100vw" className={cn("object-cover object-[center_25%] transition-transform duration-[9000ms] ease-out", idx === i ? "scale-[1.05]" : "scale-100")} />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/15 to-transparent md:hidden" />
+            </div>
+            <div className="absolute inset-x-0 bottom-0 z-10 px-6 pb-20 text-ivory md:relative md:order-1 md:flex md:items-center md:px-12 md:pb-0 md:text-ink lg:px-20">
+              <div className={cn("max-w-md", idx === i && "animate-fade-up")}>
+                {s.eyebrow && <p className="eyebrow mb-5 text-gold-300 md:text-gold">{s.eyebrow}</p>}
+                <h1 className="text-[2.5rem] leading-[1.04] sm:text-5xl lg:text-[4.2rem]">{s.title}</h1>
+                {s.subtitle && <p className="mt-5 text-[0.95rem] leading-relaxed text-ivory/85 md:text-charcoal/80">{s.subtitle}</p>}
                 {s.ctaHref && (
-                  <Link href={s.ctaHref} tabIndex={idx === i ? 0 : -1} className={cn(buttonClass(dark(s) ? "gold" : "primary", "lg"), "mt-8")}>
+                  <Link href={s.ctaHref} tabIndex={idx === i ? 0 : -1} className={cn(buttonClass("light", "lg"), "mt-9 md:bg-ink md:text-ivory md:hover:bg-charcoal")}>
                     {s.ctaLabel ?? "Shop now"}
                   </Link>
                 )}
@@ -42,15 +52,19 @@ export function HeroSlider({ slides }: { slides: Slide[] }) {
         ))}
       </div>
       {slides.length > 1 && (
-        <div className="container-x absolute inset-x-0 bottom-6 flex items-center justify-between">
-          <div className="flex gap-2">
-            {slides.map((s, idx) => (
-              <button key={s.id} onClick={() => setI(idx)} aria-label={`Show slide ${idx + 1}`} aria-current={idx === i} className={cn("h-0.5 transition-all", idx === i ? "w-10 bg-gold-300" : "w-5 bg-ivory/50 hover:bg-ivory")} />
-            ))}
+        <div className="absolute inset-x-0 bottom-6 z-20 flex items-center justify-between px-6 md:w-[41.67%] md:px-12 lg:px-20">
+          <div className="flex items-center gap-3 text-xs tabular-nums text-ivory md:text-charcoal">
+            <span>{String(i + 1).padStart(2, "0")}</span>
+            <div className="flex gap-1.5">
+              {slides.map((s, idx) => (
+                <button key={s.id} onClick={() => setI(idx)} aria-label={`Show slide ${idx + 1}`} aria-current={idx === i} className={cn("h-px transition-all", idx === i ? "w-10 bg-ivory md:bg-ink" : "w-5 bg-ivory/50 hover:bg-ivory md:bg-ink/25 md:hover:bg-ink/60")} />
+              ))}
+            </div>
+            <span className="opacity-60">{String(slides.length).padStart(2, "0")}</span>
           </div>
-          <div className="flex gap-2">
-            <button onClick={() => setI((i - 1 + slides.length) % slides.length)} aria-label="Previous slide" className="flex size-10 items-center justify-center rounded-full border border-ivory/40 text-ivory backdrop-blur hover:bg-ivory/10"><ChevronLeft className="size-4" /></button>
-            <button onClick={() => setI((i + 1) % slides.length)} aria-label="Next slide" className="flex size-10 items-center justify-center rounded-full border border-ivory/40 text-ivory backdrop-blur hover:bg-ivory/10"><ChevronRight className="size-4" /></button>
+          <div className="flex gap-1">
+            <button onClick={() => go(-1)} aria-label="Previous slide" className="flex size-10 items-center justify-center text-ivory transition-colors hover:text-gold-300 md:text-ink md:hover:text-gold"><ChevronLeft className="size-5" strokeWidth={1.25} /></button>
+            <button onClick={() => go(1)} aria-label="Next slide" className="flex size-10 items-center justify-center text-ivory transition-colors hover:text-gold-300 md:text-ink md:hover:text-gold"><ChevronRight className="size-5" strokeWidth={1.25} /></button>
           </div>
         </div>
       )}

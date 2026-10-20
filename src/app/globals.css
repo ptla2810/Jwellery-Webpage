@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ivory: #fbf8f3;
-  --color-cream: #f5efe5;
-  --color-sand: #e9dfcf;
-  --color-line: #e3d9c8;
-  --color-gold: #94702f;
-  --color-gold-500: #b18b4a;
-  --color-gold-300: #d6bd8a;
-  --color-gold-100: #f2e7d1;
-  --color-ink: #1f1c19;
-  --color-charcoal: #2d2925;
-  --color-muted: #6b635a;
+  --color-ivory: #fdfcfa;
+  --color-cream: #f5f2ed;
+  --color-sand: #e8e1d6;
+  --color-line: #e6e0d6;
+  --color-gold: #8a6a33;
+  --color-gold-500: #a8874f;
+  --color-gold-300: #d4bd8f;
+  --color-gold-100: #f1e8d6;
+  --color-ink: #171513;
+  --color-charcoal: #2e2a26;
+  --color-muted: #736c64;
   --color-wine: #6b2232;
   --color-success: #2f6b4f;
   --color-danger: #a3352b;
@@ -19,9 +19,9 @@
   --font-serif: var(--font-display), "Cormorant Garamond", Georgia, serif;
   --font-sans: var(--font-body), "Manrope", system-ui, sans-serif;
 
-  --radius-sm: 2px;
-  --radius-md: 4px;
-  --radius-lg: 6px;
+  --radius-sm: 0px;
+  --radius-md: 2px;
+  --radius-lg: 4px;
 
   --animate-fade-up: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-fade: fade 0.3s ease both;
@@ -42,7 +42,7 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, .font-display { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.01em; }
+  h1, h2, h3, .font-display { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.005em; }
   ::selection { background: var(--color-gold-100); }
   :focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }
   input, select, textarea, button { font: inherit; }
@@ -52,7 +52,10 @@
 @layer components {
   .container-x { width: 100%; max-width: 1360px; margin-inline: auto; padding-inline: 1rem; }
   @media (min-width: 768px) { .container-x { padding-inline: 2rem; } }
-  .eyebrow { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-gold); font-weight: 600; }
+  .eyebrow { font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--color-gold); font-weight: 600; }
+  /* Small uppercase link used for "View all"-style actions. */
+  .link-caps { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: underline; text-decoration-color: var(--color-gold-300); text-underline-offset: 6px; transition: color 0.2s, text-decoration-color 0.2s; }
+  .link-caps:hover { color: var(--color-gold); text-decoration-color: var(--color-gold); }
   .hairline { border-color: var(--color-line); }
   .scrollbar-none { scrollbar-width: none; }
   .scrollbar-none::-webkit-scrollbar { display: none; }

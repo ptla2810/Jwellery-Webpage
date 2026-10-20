@@ -43,14 +43,17 @@ export async function ListingView({
   return (
     <div>
       {bannerUrl ? (
-        <section className="relative overflow-hidden bg-ink text-ivory">
-          <ProductImage src={bannerUrl} alt="" fill priority sizes="100vw" className="object-cover object-right opacity-90" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/40 to-transparent" />
-          <div className="container-x relative py-14 md:py-20">
-            <div className="[&_a]:text-ivory/70 [&_span]:text-ivory/80"><Breadcrumbs items={breadcrumbs} /></div>
-            {eyebrow && <p className="eyebrow mt-6 text-gold-300">{eyebrow}</p>}
-            <h1 className="mt-2 text-4xl md:text-6xl">{title}</h1>
-            {description && <p className="mt-3 max-w-xl text-ivory/80">{description}</p>}
+        <section className="grid bg-cream md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:min-h-[380px]">
+          <div className="flex items-center px-4 py-12 md:order-1 md:px-8 md:py-16 lg:pl-[max(2rem,calc((100vw-1360px)/2+2rem))] lg:pr-16">
+            <div className="max-w-lg">
+              <Breadcrumbs items={breadcrumbs} />
+              {eyebrow && <p className="eyebrow mt-8">{eyebrow}</p>}
+              <h1 className="mt-3 text-4xl leading-tight md:text-[3.4rem]">{title}</h1>
+              {description && <p className="mt-4 leading-relaxed text-charcoal/75">{description}</p>}
+            </div>
+          </div>
+          <div className="relative hidden md:order-2 md:block">
+            <ProductImage src={bannerUrl} alt="" fill priority sizes="50vw" className="object-cover object-[center_30%]" />
           </div>
         </section>
       ) : (

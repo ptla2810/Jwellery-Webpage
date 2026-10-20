@@ -110,7 +110,7 @@ export default async function ProductPage({ params, searchParams }: Props) {
       <section className="container-x mt-6 grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <Gallery images={p.images} name={p.name} />
-          {p.isDemo && <p className="mt-2 text-xs text-muted">Images are illustrations for this demo catalogue.</p>}
+          {p.isDemo && <p className="mt-2 text-xs text-muted">Photos are representative stock images for this demo catalogue.</p>}
         </div>
         <div>
           <p className="eyebrow">{metalSummary(p.metalType, p.purity)}</p>

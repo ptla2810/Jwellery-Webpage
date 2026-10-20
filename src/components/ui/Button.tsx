@@ -3,15 +3,17 @@ import { forwardRef, type ButtonHTMLAttributes, type ComponentProps } from "reac
 import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/cn";
 
-type Variant = "primary" | "gold" | "outline" | "ghost" | "link" | "danger";
+type Variant = "primary" | "light" | "gold" | "outline" | "outline-light" | "ghost" | "link" | "danger";
 type Size = "sm" | "md" | "lg";
 
 const base =
   "inline-flex items-center justify-center gap-2 font-medium tracking-wide transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50 rounded-[var(--radius-sm)] whitespace-nowrap";
 const variants: Record<Variant, string> = {
   primary: "bg-ink text-ivory hover:bg-charcoal",
+  light: "bg-ivory text-ink hover:bg-cream",
   gold: "bg-gold text-white hover:bg-[#7d5e26]",
   outline: "border border-ink text-ink hover:bg-ink hover:text-ivory",
+  "outline-light": "border border-ivory/60 text-ivory hover:bg-ivory hover:text-ink",
   ghost: "text-ink hover:bg-cream",
   link: "text-ink underline underline-offset-4 decoration-gold-300 hover:decoration-gold px-0",
   danger: "bg-danger text-white hover:bg-[#8a2b22]",

@@ -10,6 +10,7 @@ import { productSvg, sceneSvg, type ArtMetal } from "../scripts/art";
 import { PERMISSIONS, ROLE_PRESETS } from "../src/lib/auth/permissions";
 import { settingDefaults } from "../src/lib/settings-defaults";
 import { syncProductDerived, syncProductRating } from "../src/lib/catalog/sync";
+import { CATEGORY_PHOTOS, COLLECTION_PHOTOS, EDITORIAL_PHOTOS, HERO_PHOTOS, PRODUCT_PHOTOS, photoUrl } from "../src/lib/photos";
 import { COLLECTIONS, MATERIAL_CATEGORIES, OCCASION_CATEGORIES, POLICY_PAGES, PRODUCTS, TYPE_CATEGORIES, type SeedProduct } from "./seed-data";
 
 const prisma = new PrismaClient();
@@ -371,14 +372,56 @@ async function seedSettingsAndContent() {
   }
 }
 
+/** True for the placeholder artwork this seed generates, so admin-uploaded images are never replaced. */
+const isSeedArt = (url: string | null) => !url || (url.startsWith("/images/") && url.endsWith(".svg"));
+
+/** Swaps generated placeholder artwork for the photography in ./photos.ts. Safe to re-run. */
+async function applyPhotos() {
+  let updated = 0;
+  for (const c of await prisma.category.findMany()) {
+    const id = CATEGORY_PHOTOS[c.slug];
+    if (id && isSeedArt(c.imageUrl)) {
+      await prisma.category.update({ where: { id: c.id }, data: { imageUrl: photoUrl(id), bannerUrl: isSeedArt(c.bannerUrl) ? photoUrl(id) : c.bannerUrl } });
+      updated++;
+    }
+  }
+  for (const c of await prisma.collection.findMany()) {
+    const id = COLLECTION_PHOTOS[c.slug];
+    if (id && isSeedArt(c.imageUrl)) {
+      await prisma.collection.update({ where: { id: c.id }, data: { imageUrl: photoUrl(id), bannerUrl: isSeedArt(c.bannerUrl) ? photoUrl(id) : c.bannerUrl } });
+      updated++;
+    }
+  }
+  for (const p of await prisma.product.findMany({ select: { id: true, name: true, images: { select: { url: true } } } })) {
+    const ids = PRODUCT_PHOTOS[p.name];
+    if (!ids || !p.images.every((i) => isSeedArt(i.url))) continue;
+    await prisma.$transaction([
+      prisma.productImage.deleteMany({ where: { productId: p.id } }),
+      prisma.productImage.createMany({ data: ids.map((id, i) => ({ productId: p.id, url: photoUrl(id), alt: i === 0 ? p.name : `${p.name}, alternate view`, sortOrder: i })) }),
+    ]);
+    updated++;
+  }
+  for (const [placement, ids] of [["HERO", HERO_PHOTOS], ["EDITORIAL", EDITORIAL_PHOTOS]] as const) {
+    const banners = await prisma.banner.findMany({ where: { placement }, orderBy: { sortOrder: "asc" } });
+    for (const [i, b] of banners.entries()) {
+      if (ids[i] && isSeedArt(b.imageUrl)) {
+        await prisma.banner.update({ where: { id: b.id }, data: { imageUrl: photoUrl(ids[i]), imageAlt: b.title } });
+        updated++;
+      }
+    }
+  }
+  return updated;
+}
+
 async function main() {
   await seedRoles();
   await seedTaxonomy();
   const created = await seedProducts();
   await seedBanners();
   await seedSettingsAndContent();
+  const photos = await applyPhotos();
   const total = await prisma.product.count();
-  console.log(`Seed complete: ${created} new products (${total} total).`);
+  console.log(`Seed complete: ${created} new products (${total} total), ${photos} records switched to photography.`);
 }
 
 main()

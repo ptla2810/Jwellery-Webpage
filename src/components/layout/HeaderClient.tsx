@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Heart, Menu, Search, ShoppingBag, User, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Heart, Menu, Search, ShoppingBag, User, X } from "lucide-react";
 import type { Navigation } from "@/lib/catalog/queries";
+import { BRAND_PHOTOS, COLLECTION_PHOTOS, EDITORIAL_PHOTOS, photoUrl } from "@/lib/photos";
 import { useStore } from "@/components/providers/StoreProvider";
 import { Sheet } from "@/components/ui/Sheet";
 import { ProductImage } from "@/components/ui/ProductImage";
@@ -12,6 +13,14 @@ import { cn } from "@/lib/cn";
 import { SearchBox } from "./SearchBox";
 
 type MenuKey = "jewellery" | "metal" | "occasion" | "collections";
+type Feature = { title: string; caption: string; href: string; image: string };
+
+const QUICK_LINKS = [
+  { label: "New arrivals", href: "/collections/new-arrivals" },
+  { label: "Best sellers", href: "/collections/best-sellers" },
+  { label: "Gifts under ₹25,000", href: "/shop?priceMax=25000" },
+  { label: "Book a consultation", href: "/book-consultation" },
+];
 
 export function HeaderClient({ nav, storeName }: { nav: Navigation; storeName: string }) {
   const { cartCount, openDrawer, wishlist, user } = useStore();
@@ -37,11 +46,35 @@ export function HeaderClient({ nav, storeName }: { nav: Navigation; storeName: s
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const menus: { key: MenuKey; label: string; items: Navigation["types"]; base: string; feature: { title: string; href: string; image: string } }[] = [
-    { key: "jewellery", label: "Jewellery", items: nav.types, base: "/jewellery", feature: { title: "Best sellers", href: "/collections/best-sellers", image: "/images/collections/best-sellers.svg" } },
-    { key: "metal", label: "Gold & Diamonds", items: nav.materials, base: "/jewellery", feature: { title: "The Diamond Room", href: "/jewellery/diamond", image: "/images/categories/diamond.svg" } },
-    { key: "occasion", label: "Occasions", items: nav.occasions, base: "/jewellery", feature: { title: "Wedding jewellery", href: "/jewellery/wedding", image: "/images/categories/wedding.svg" } },
-    { key: "collections", label: "Collections", items: nav.collections, base: "/collections", feature: { title: "Bridal collection", href: "/collections/bridal", image: "/images/collections/bridal.svg" } },
+  const menus: { key: MenuKey; label: string; heading: string; items: Navigation["types"]; base: string; features: [Feature, Feature] }[] = [
+    {
+      key: "jewellery", label: "Jewellery", heading: "Shop by category", items: nav.types, base: "/jewellery",
+      features: [
+        { title: "Best sellers", caption: "The pieces our clients return to", href: "/collections/best-sellers", image: photoUrl(BRAND_PHOTOS.menuBestSellers) },
+        { title: "New arrivals", caption: "Fresh from the atelier", href: "/collections/new-arrivals", image: photoUrl(COLLECTION_PHOTOS["new-arrivals"]) },
+      ],
+    },
+    {
+      key: "metal", label: "Gold & Diamonds", heading: "Shop by material", items: nav.materials, base: "/jewellery",
+      features: [
+        { title: "The Diamond Room", caption: "Solitaires and statement necklaces", href: "/jewellery/diamond", image: photoUrl(BRAND_PHOTOS.menuDiamond) },
+        { title: "Heritage gold", caption: "22K, crafted by hand", href: "/jewellery/gold", image: photoUrl(EDITORIAL_PHOTOS[1]) },
+      ],
+    },
+    {
+      key: "occasion", label: "Occasions", heading: "Shop by occasion", items: nav.occasions, base: "/jewellery",
+      features: [
+        { title: "The wedding edit", caption: "For the bride and her family", href: "/jewellery/wedding", image: photoUrl(BRAND_PHOTOS.menuWedding) },
+        { title: "Everyday fine", caption: "Light pieces for every day", href: "/jewellery/everyday-wear", image: photoUrl(COLLECTION_PHOTOS.lightweight) },
+      ],
+    },
+    {
+      key: "collections", label: "Collections", heading: "Our collections", items: nav.collections, base: "/collections",
+      features: [
+        { title: "Bridal", caption: "Polki, kundan and gold", href: "/collections/bridal", image: photoUrl(BRAND_PHOTOS.menuBridal) },
+        { title: "Premium", caption: "Our finest stones", href: "/collections/premium", image: photoUrl(COLLECTION_PHOTOS.premium) },
+      ],
+    },
   ];
   const active = menus.find((m) => m.key === menu);
 
@@ -53,58 +86,67 @@ export function HeaderClient({ nav, storeName }: { nav: Navigation; storeName: s
     closeTimer.current = setTimeout(() => setMenu(null), 120);
   };
 
-  const iconBtn = "relative inline-flex size-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-cream";
+  const [brand, ...rest] = storeName.split(" ");
+  const iconBtn = "relative inline-flex size-10 items-center justify-center text-ink transition-colors hover:text-gold";
+  const navItem = "flex items-center gap-1 px-4 text-[0.7rem] font-medium uppercase tracking-[0.2em] transition-colors";
 
   return (
-    <header className={cn("sticky top-0 z-40 border-b bg-ivory/95 backdrop-blur transition-shadow", scrolled ? "border-line shadow-[0_6px_24px_-18px_rgba(31,28,25,0.35)]" : "border-transparent")}>
-      <div className="container-x flex h-16 items-center gap-3 md:h-20">
-        <button className={cn(iconBtn, "lg:hidden")} onClick={() => setMobileOpen(true)} aria-label="Open menu">
-          <Menu className="size-5" />
-        </button>
-        <Link href="/" className="flex shrink-0 flex-col items-start leading-none" aria-label={`${storeName} home`}>
-          <span className="font-display text-[1.65rem] tracking-[0.04em] md:text-[1.9rem]">{storeName.split(" ")[0]}</span>
-          <span className="hidden text-[0.55rem] font-semibold uppercase tracking-[0.42em] text-gold sm:block">{storeName.split(" ").slice(1).join(" ") || "Fine Jewellery"}</span>
+    <header className={cn("sticky top-0 z-40 border-b bg-ivory/95 backdrop-blur transition-shadow", scrolled ? "border-line shadow-[0_8px_30px_-24px_rgba(23,21,19,0.5)]" : "border-line/70")}>
+      <div className="container-x grid h-16 grid-cols-[1fr_auto_1fr] items-center gap-3 md:h-20">
+        <div className="flex items-center gap-1">
+          <button className={cn(iconBtn, "-ml-2 lg:hidden")} onClick={() => setMobileOpen(true)} aria-label="Open menu">
+            <Menu className="size-5" strokeWidth={1.5} />
+          </button>
+          <div className="hidden w-60 xl:block">
+            <SearchBox />
+          </div>
+          <button className={cn(iconBtn, "xl:hidden")} onClick={() => setSearchOpen((s) => !s)} aria-label="Search" aria-expanded={searchOpen}>
+            {searchOpen ? <X className="size-5" strokeWidth={1.5} /> : <Search className="size-5" strokeWidth={1.5} />}
+          </button>
+        </div>
+
+        <Link href="/" className="flex flex-col items-center leading-none" aria-label={`${storeName} home`}>
+          <span className="font-display text-[1.45rem] uppercase tracking-[0.22em] sm:text-[1.7rem] sm:tracking-[0.32em] md:text-[2.1rem]">{brand}</span>
+          <span className="mt-1 hidden text-[0.52rem] font-medium uppercase tracking-[0.5em] text-gold sm:block">{rest.join(" ") || "Fine Jewellery"}</span>
         </Link>
 
-        <nav aria-label="Main" className="ml-8 hidden h-full items-stretch lg:flex" onMouseLeave={leave}>
-          {menus.map((m) => (
-            <div key={m.key} className="flex items-stretch" onMouseEnter={() => enter(m.key)}>
-              <button
-                className={cn("flex items-center gap-1 px-3.5 text-[0.72rem] font-semibold uppercase tracking-[0.16em] transition-colors", menu === m.key ? "text-gold" : "text-charcoal hover:text-gold")}
-                aria-expanded={menu === m.key}
-                aria-haspopup="true"
-                onClick={() => setMenu(menu === m.key ? null : m.key)}
-                onKeyDown={(e) => e.key === "Escape" && setMenu(null)}
-              >
-                {m.label}
-                <ChevronDown className={cn("size-3 transition-transform", menu === m.key && "rotate-180")} />
-              </button>
-            </div>
-          ))}
-          <Link href="/collections/bridal" className="flex items-center px-3.5 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-charcoal hover:text-gold">Bridal</Link>
-          <Link href="/collections/gifts-for-her" className="flex items-center px-3.5 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-charcoal hover:text-gold">Gifts</Link>
-        </nav>
-
-        <div className="ml-auto hidden w-64 xl:block">
-          <SearchBox />
-        </div>
-        <div className="ml-auto flex items-center gap-0.5 xl:ml-4">
-          <button className={cn(iconBtn, "xl:hidden")} onClick={() => setSearchOpen((s) => !s)} aria-label="Search" aria-expanded={searchOpen}>
-            {searchOpen ? <X className="size-5" /> : <Search className="size-5" />}
-          </button>
-          <Link href={user ? "/account" : "/login"} className={cn(iconBtn, "hidden sm:inline-flex")} aria-label={user ? `Account (${user.name})` : "Sign in"}>
-            <User className="size-5" />
+        <div className="flex items-center justify-end gap-0.5">
+          <Link href="/book-consultation" className="mr-3 hidden text-[0.68rem] font-medium uppercase tracking-[0.18em] text-charcoal hover:text-gold 2xl:block">
+            Book an appointment
+          </Link>
+          <Link href={user ? "/account" : "/login"} className={cn(iconBtn, "max-sm:hidden")} aria-label={user ? `Account (${user.name})` : "Sign in"}>
+            <User className="size-5" strokeWidth={1.5} />
           </Link>
           <Link href="/wishlist" className={iconBtn} aria-label={`Wishlist (${wishlist.size} items)`}>
-            <Heart className="size-5" />
-            {wishlist.size > 0 && <span className="absolute right-1 top-1 flex size-4 items-center justify-center rounded-full bg-gold text-[0.6rem] font-semibold text-white">{wishlist.size}</span>}
+            <Heart className="size-5" strokeWidth={1.5} />
+            {wishlist.size > 0 && <span className="absolute right-0.5 top-1 flex size-4 items-center justify-center rounded-full bg-gold text-[0.6rem] font-semibold text-white">{wishlist.size}</span>}
           </Link>
-          <button className={iconBtn} onClick={openDrawer} aria-label={`Shopping bag (${cartCount} items)`} data-testid="cart-button">
-            <ShoppingBag className="size-5" />
-            {cartCount > 0 && <span data-testid="cart-count" className="absolute right-1 top-1 flex size-4 items-center justify-center rounded-full bg-ink text-[0.6rem] font-semibold text-ivory">{cartCount}</span>}
+          <button className={cn(iconBtn, "-mr-2")} onClick={openDrawer} aria-label={`Shopping bag (${cartCount} items)`} data-testid="cart-button">
+            <ShoppingBag className="size-5" strokeWidth={1.5} />
+            {cartCount > 0 && <span data-testid="cart-count" className="absolute right-0.5 top-1 flex size-4 items-center justify-center rounded-full bg-ink text-[0.6rem] font-semibold text-ivory">{cartCount}</span>}
           </button>
         </div>
       </div>
+
+      <nav aria-label="Main" className="hidden h-12 items-stretch justify-center lg:flex" onMouseLeave={leave}>
+        {menus.map((m) => (
+          <div key={m.key} className="flex items-stretch" onMouseEnter={() => enter(m.key)}>
+            <button
+              className={cn(navItem, "relative after:absolute after:inset-x-4 after:bottom-0 after:h-px after:origin-left after:bg-ink after:transition-transform", menu === m.key ? "text-ink after:scale-x-100" : "text-charcoal after:scale-x-0 hover:text-ink")}
+              aria-expanded={menu === m.key}
+              aria-haspopup="true"
+              onClick={() => setMenu(menu === m.key ? null : m.key)}
+              onKeyDown={(e) => e.key === "Escape" && setMenu(null)}
+            >
+              {m.label}
+              <ChevronDown className={cn("size-3 transition-transform", menu === m.key && "rotate-180")} strokeWidth={1.5} />
+            </button>
+          </div>
+        ))}
+        <Link href="/collections/bridal" className={cn(navItem, "text-charcoal hover:text-ink")} onMouseEnter={leave}>Bridal</Link>
+        <Link href="/collections/gifts-for-her" className={cn(navItem, "text-charcoal hover:text-ink")} onMouseEnter={leave}>Gifts</Link>
+        <Link href="/collections/new-arrivals" className={cn(navItem, "text-gold hover:text-ink")} onMouseEnter={leave}>New in</Link>
+      </nav>
 
       {searchOpen && (
         <div className="container-x animate-fade pb-4 xl:hidden">
@@ -113,32 +155,45 @@ export function HeaderClient({ nav, storeName }: { nav: Navigation; storeName: s
       )}
 
       {active && (
-        <div className="absolute inset-x-0 top-full hidden animate-fade border-t border-line bg-ivory shadow-[0_24px_40px_-30px_rgba(31,28,25,0.45)] lg:block" onMouseEnter={() => enter(active.key)} onMouseLeave={leave}>
-          <div className="container-x grid grid-cols-[1fr_280px] gap-10 py-10">
+        <div className="absolute inset-x-0 top-full hidden animate-fade border-t border-line bg-ivory shadow-[0_30px_50px_-40px_rgba(23,21,19,0.55)] lg:block" onMouseEnter={() => enter(active.key)} onMouseLeave={leave}>
+          <div className="container-x grid grid-cols-[minmax(0,1.5fr)_minmax(0,0.8fr)_minmax(0,2fr)] gap-12 py-10">
             <div>
-              <p className="eyebrow mb-5">Shop by {active.label.toLowerCase()}</p>
-              <ul className="grid grid-cols-3 gap-x-8 gap-y-1 xl:grid-cols-4">
+              <p className="eyebrow mb-5">{active.heading}</p>
+              <ul className="grid grid-cols-2 gap-x-10">
                 {active.items.map((it) => (
                   <li key={it.slug}>
-                    <Link href={`${active.base}/${it.slug}`} className="group flex items-center gap-3 rounded py-2 text-sm text-charcoal hover:text-gold">
-                      {it.imageUrl && (
-                        <span className="relative size-10 shrink-0 overflow-hidden rounded-full bg-cream">
-                          <ProductImage src={it.imageUrl} alt="" fill sizes="40px" className="object-cover transition-transform group-hover:scale-110" />
-                        </span>
-                      )}
+                    <Link href={`${active.base}/${it.slug}`} className="block py-1.5 font-display text-[1.15rem] text-charcoal transition-colors hover:text-gold">
                       {it.name}
                     </Link>
                   </li>
                 ))}
               </ul>
-              <Link href={active.key === "collections" ? "/collections" : "/shop"} className="mt-6 inline-block text-xs font-semibold uppercase tracking-[0.14em] text-gold hover:underline">
-                View all →
+              <Link href={active.key === "collections" ? "/collections" : "/shop"} className="link-caps mt-6 inline-block">
+                View all
               </Link>
             </div>
-            <Link href={active.feature.href} className="group relative block aspect-[4/5] overflow-hidden bg-cream">
-              <ProductImage src={active.feature.image} alt="" fill sizes="280px" className="object-cover transition-transform duration-700 group-hover:scale-105" />
-              <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/70 to-transparent p-5 font-display text-xl text-ivory">{active.feature.title}</span>
-            </Link>
+            <div className="border-l border-line pl-10">
+              <p className="eyebrow mb-5">Discover</p>
+              <ul className="space-y-3 text-sm text-charcoal">
+                {QUICK_LINKS.map((l) => (
+                  <li key={l.href}><Link href={l.href} className="hover:text-gold">{l.label}</Link></li>
+                ))}
+              </ul>
+            </div>
+            <div className="grid grid-cols-2 gap-5">
+              {active.features.map((f) => (
+                <Link key={f.href} href={f.href} className="group block">
+                  <span className="relative block aspect-[4/5] overflow-hidden bg-cream">
+                    <ProductImage src={f.image} alt="" fill sizes="260px" className="object-cover transition-transform duration-1000 group-hover:scale-105" />
+                  </span>
+                  <span className="mt-3 flex items-center justify-between font-display text-lg">
+                    {f.title}
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" strokeWidth={1.5} />
+                  </span>
+                  <span className="text-xs text-muted">{f.caption}</span>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       )}
@@ -147,22 +202,26 @@ export function HeaderClient({ nav, storeName }: { nav: Navigation; storeName: s
         <nav aria-label="Mobile" className="px-5 py-2">
           {menus.map((m) => (
             <details key={m.key} className="group border-b border-line">
-              <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-sm font-semibold uppercase tracking-[0.14em]">
+              <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-[0.75rem] font-medium uppercase tracking-[0.2em]">
                 {m.label}
-                <ChevronDown className="size-4 transition-transform group-open:rotate-180" />
+                <ChevronDown className="size-4 transition-transform group-open:rotate-180" strokeWidth={1.5} />
               </summary>
               <ul className="grid grid-cols-2 gap-1 pb-4">
                 {m.items.map((it) => (
                   <li key={it.slug}>
-                    <Link href={`${m.base}/${it.slug}`} onClick={() => setMobileOpen(false)} className="block rounded px-2 py-2 text-sm text-charcoal hover:bg-cream">{it.name}</Link>
+                    <Link href={`${m.base}/${it.slug}`} onClick={() => setMobileOpen(false)} className="block px-2 py-2 font-display text-lg text-charcoal hover:text-gold">{it.name}</Link>
                   </li>
                 ))}
               </ul>
             </details>
           ))}
+          <Link href="/collections/bridal" onClick={() => setMobileOpen(false)} className="group relative mt-5 block aspect-[16/9] overflow-hidden bg-cream">
+            <ProductImage src={photoUrl(BRAND_PHOTOS.menuBridal)} alt="" fill sizes="360px" className="object-cover object-[center_25%]" />
+            <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/70 to-transparent p-4 font-display text-xl text-ivory">The bridal collection</span>
+          </Link>
           <div className="space-y-1 py-4 text-sm">
-            <Link href="/collections/bridal" onClick={() => setMobileOpen(false)} className="block py-2">Bridal</Link>
             <Link href="/collections/gifts-for-her" onClick={() => setMobileOpen(false)} className="block py-2">Gifts</Link>
+            <Link href="/collections/new-arrivals" onClick={() => setMobileOpen(false)} className="block py-2">New in</Link>
             <Link href={user ? "/account" : "/login"} onClick={() => setMobileOpen(false)} className="block py-2">{user ? "My account" : "Sign in / Register"}</Link>
             <Link href="/track-order" onClick={() => setMobileOpen(false)} className="block py-2">Track order</Link>
             <Link href="/book-consultation" onClick={() => setMobileOpen(false)} className="block py-2">Book a consultation</Link>
