@@ -1,0 +1,63 @@
+{
+  "name": "aurelle-jewellery",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.9"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "db:start": "tsx scripts/dev-db.ts",
+    "db:migrate": "prisma migrate dev",
+    "db:deploy": "prisma migrate deploy",
+    "db:seed": "tsx prisma/seed.ts",
+    "admin:create": "tsx scripts/create-admin.ts",
+    "postinstall": "prisma generate"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "6.19.3",
+    "aws4fetch": "1.0.20",
+    "clsx": "2.1.1",
+    "lucide-react": "0.545.0",
+    "next": "16.3.8",
+    "nodemailer": "10.1.7",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "server-only": "0.0.1",
+    "zod": "4.1.12"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "@tailwindcss/postcss": "4.1.16",
+    "@types/node": "22.18.0",
+    "@types/nodemailer": "8.0.2",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "embedded-postgres": "17.6.0-beta.15",
+    "eslint": "9.38.0",
+    "eslint-config-next": "16.3.8",
+    "prisma": "6.19.3",
+    "tailwindcss": "4.1.16",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11"
+  },
+  "allowScripts": {
+    "@embedded-postgres/darwin-arm64@17.6.0-beta.15": true,
+    "@prisma/client@6.19.3": true,
+    "@prisma/engines@6.19.3": true,
+    "esbuild@0.25.12": true,
+    "esbuild@0.28.2": true,
+    "prisma@6.19.3": true,
+    "unrs-resolver@1.12.2": true
+  }
+}

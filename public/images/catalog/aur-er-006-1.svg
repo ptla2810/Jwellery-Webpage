@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img">
+<defs>
+  <linearGradient id="m1mz2" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FFF3C4"/><stop offset=".35" stop-color="#EBC866"/>
+    <stop offset=".62" stop-color="#B98A2E"/><stop offset=".85" stop-color="#F6D98A"/><stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <linearGradient id="mv1mz2" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F6D98A"/><stop offset=".5" stop-color="#B98A2E"/><stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <radialGradient id="s1mz2" cx=".38" cy=".32" r=".75">
+    <stop offset="0" stop-color="#FBF8F2"/><stop offset=".55" stop-color="#ECE4D6"/><stop offset="1" stop-color="#C9BBA3"/>
+  </radialGradient>
+  <radialGradient id="beads1mz2" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#5a5a5a"/><stop offset="1" stop-color="#0b0b0b"/></radialGradient>
+  <filter id="soft1mz2" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="14"/></filter>
+  <filter id="glow1mz2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+  <radialGradient id="bg1mz2" cx=".5" cy=".42" r=".75"><stop offset="0" stop-color="#FBF7F1"/><stop offset="1" stop-color="#EFE5D6"/></radialGradient>
+</defs>
+<rect width="800" height="1000" fill="url(#bg1mz2)"/>
+
+<ellipse cx="400" cy="870" rx="260" ry="26" fill="#6B5A3E" opacity=".16" filter="url(#soft1mz2)"/>
+<g transform="translate(400 500) scale(1) rotate(0) translate(-400 -500)">
+<circle cx="270" cy="250" r="22" fill="url(#s1mz2)"/><circle cx="270" cy="250" r="13.64" fill="none" stroke="#fff" stroke-width="1.1" opacity=".7"/><circle cx="285.24522220238197" cy="265.24522220238197" r="3.52" fill="url(#m1mz2)"/><circle cx="254.75477779761803" cy="265.24522220238197" r="3.52" fill="url(#m1mz2)"/><circle cx="254.75477779761803" cy="234.75477779761803" r="3.52" fill="url(#m1mz2)"/><circle cx="285.24522220238197" cy="234.75477779761803" r="3.52" fill="url(#m1mz2)"/><line x1="270" y1="272" x2="270" y2="330" stroke="url(#m1mz2)" stroke-width="6"/>
+          <path d="M270 330 C 350 420, 340 560, 270 590 C 200 560, 190 420, 270 330 Z" fill="url(#m1mz2)"/>
+          <circle cx="270" cy="500" r="36" fill="url(#s1mz2)"/><circle cx="270" cy="500" r="22.32" fill="none" stroke="#fff" stroke-width="1.8" opacity=".7"/><circle cx="294.9467272402614" cy="524.9467272402615" r="5.76" fill="url(#m1mz2)"/><circle cx="245.0532727597386" cy="524.9467272402615" r="5.76" fill="url(#m1mz2)"/><circle cx="245.0532727597386" cy="475.0532727597386" r="5.76" fill="url(#m1mz2)"/><circle cx="294.9467272402614" cy="475.0532727597386" r="5.76" fill="url(#m1mz2)"/><circle cx="530" cy="250" r="22" fill="url(#s1mz2)"/><circle cx="530" cy="250" r="13.64" fill="none" stroke="#fff" stroke-width="1.1" opacity=".7"/><circle cx="545.2452222023819" cy="265.24522220238197" r="3.52" fill="url(#m1mz2)"/><circle cx="514.7547777976181" cy="265.24522220238197" r="3.52" fill="url(#m1mz2)"/><circle cx="514.7547777976181" cy="234.75477779761803" r="3.52" fill="url(#m1mz2)"/><circle cx="545.2452222023819" cy="234.75477779761803" r="3.52" fill="url(#m1mz2)"/><line x1="530" y1="272" x2="530" y2="330" stroke="url(#m1mz2)" stroke-width="6"/>
+          <path d="M530 330 C 610 420, 600 560, 530 590 C 460 560, 450 420, 530 330 Z" fill="url(#m1mz2)"/>
+          <circle cx="530" cy="500" r="36" fill="url(#s1mz2)"/><circle cx="530" cy="500" r="22.32" fill="none" stroke="#fff" stroke-width="1.8" opacity=".7"/><circle cx="554.9467272402615" cy="524.9467272402615" r="5.76" fill="url(#m1mz2)"/><circle cx="505.0532727597386" cy="524.9467272402615" r="5.76" fill="url(#m1mz2)"/><circle cx="505.0532727597386" cy="475.0532727597386" r="5.76" fill="url(#m1mz2)"/><circle cx="554.9467272402613" cy="475.0532727597386" r="5.76" fill="url(#m1mz2)"/>
+</g>
+<text x="770" y="975" text-anchor="end" font-family="Georgia, serif" font-size="18" letter-spacing="2" fill="#9B8F7D" opacity=".85">ILLUSTRATION</text>
+</svg>

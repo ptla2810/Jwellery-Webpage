@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img">
+<defs>
+  <linearGradient id="mdjwy" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FFF3C4"/><stop offset=".35" stop-color="#EBC866"/>
+    <stop offset=".62" stop-color="#B98A2E"/><stop offset=".85" stop-color="#F6D98A"/><stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <linearGradient id="mvdjwy" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F6D98A"/><stop offset=".5" stop-color="#B98A2E"/><stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  
+  <radialGradient id="beadsdjwy" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#5a5a5a"/><stop offset="1" stop-color="#0b0b0b"/></radialGradient>
+  <filter id="softdjwy" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="14"/></filter>
+  <filter id="glowdjwy" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+  <radialGradient id="bgdjwy" cx=".5" cy=".42" r=".75"><stop offset="0" stop-color="#F6ECE4"/><stop offset="1" stop-color="#E6D3C4"/></radialGradient>
+</defs>
+<rect width="800" height="1000" fill="url(#bgdjwy)"/>
+
+<ellipse cx="400" cy="870" rx="260" ry="26" fill="#6B4E3E" opacity=".16" filter="url(#softdjwy)"/>
+<g transform="translate(400 500) scale(1.22) rotate(-8) translate(-400 -500)">
+<ellipse cx="400" cy="500" rx="230" ry="120" fill="none" stroke="url(#mvdjwy)" stroke-width="56"/>
+        <ellipse cx="400" cy="494" rx="230" ry="120" fill="none" stroke="url(#mdjwy)" stroke-width="46"/><line x1="604.9315005633246" y1="530.4788599687456" x2="604.9315005633246" y2="566.4788599687456" stroke="#8A6420" stroke-opacity=".35" stroke-width="3"/><line x1="587.4793930175674" y1="545.5137406811215" x2="587.4793930175674" y2="581.5137406811215" stroke="#8A6420" stroke-opacity=".35" stroke-width="3"/><line x1="566.0048524626234" y1="559.0571808644488" x2="566.0048524626234" y2="595.0571808644488" stroke="#8A6420" stroke-opacity=".35" stroke-width="3"/><line x1="540.9686223401847" y1="570.8186014850828" x2="540.9686223401847" y2="606.8186014850828" stroke="#8A6420" stroke-opacity=".35" stroke-width="3"/><line x1="512.9078633314824" y1="580.5456573344227" x2="512.9078633314824" y2="616.5456573344227" stroke="#8A6420" stroke-opacity=".35" stroke-width="3"/><line x1="482.42462839541906" y1="588.0296511796643" x2="482.42462839541906" y2="624.0296511796643" stroke="#8A6420" stroke-opacity=".35" stroke-width="3"/><line x1="450.17294552120484" y1="593.1100114326497" x2="450.17294552120484" y2="629.1100114326497" stroke="#8A6420" stroke-opacity=".35" stroke-width="3"/><line x1="416.8447853393553" y1="595.677737266935" x2="416.8447853393553" y2="631.677737266935" stroke="#8A6420" stroke-opacity=".35" stroke-width="3"/><line x1="383.15521466064473" y1="595.677737266935" x2="383.15521466064473" y2="631.677737266935" stroke="#8A6420" stroke-opacity=".35" stroke-width="3"/><line x1="349.8270544787953" y1="593.1100114326497" x2="349.8270544787953" y2="629.1100114326497" stroke="#8A6420" stroke-opacity=".35" stroke-width="3"/><line x1="317.575371604581" y1="588.0296511796643" x2="317.575371604581" y2="624.0296511796643" stroke="#8A6420" stroke-opacity=".35" stroke-width="3"/><line x1="287.0921366685177" y1="580.5456573344228" x2="287.0921366685177" y2="616.5456573344228" stroke="#8A6420" stroke-opacity=".35" stroke-width="3"/><line x1="259.03137765981546" y1="570.8186014850828" x2="259.03137765981546" y2="606.8186014850828" stroke="#8A6420" stroke-opacity=".35" stroke-width="3"/><line x1="233.9951475373767" y1="559.0571808644488" x2="233.9951475373767" y2="595.0571808644488" stroke="#8A6420" stroke-opacity=".35" stroke-width="3"/><line x1="212.52060698243255" y1="545.5137406811215" x2="212.52060698243255" y2="581.5137406811215" stroke="#8A6420" stroke-opacity=".35" stroke-width="3"/><line x1="195.0684994366754" y1="530.4788599687456" x2="195.0684994366754" y2="566.4788599687456" stroke="#8A6420" stroke-opacity=".35" stroke-width="3"/>
+</g>
+<text x="770" y="975" text-anchor="end" font-family="Georgia, serif" font-size="18" letter-spacing="2" fill="#957F6E" opacity=".85">ILLUSTRATION</text>
+</svg>

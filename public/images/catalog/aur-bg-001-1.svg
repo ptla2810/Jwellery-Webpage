@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img">
+<defs>
+  <linearGradient id="m6f81" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FFF3C4"/><stop offset=".35" stop-color="#EBC866"/>
+    <stop offset=".62" stop-color="#B98A2E"/><stop offset=".85" stop-color="#F6D98A"/><stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <linearGradient id="mv6f81" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F6D98A"/><stop offset=".5" stop-color="#B98A2E"/><stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  
+  <radialGradient id="beads6f81" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#5a5a5a"/><stop offset="1" stop-color="#0b0b0b"/></radialGradient>
+  <filter id="soft6f81" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="14"/></filter>
+  <filter id="glow6f81" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+  <radialGradient id="bg6f81" cx=".5" cy=".42" r=".75"><stop offset="0" stop-color="#FBF7F1"/><stop offset="1" stop-color="#EFE5D6"/></radialGradient>
+</defs>
+<rect width="800" height="1000" fill="url(#bg6f81)"/>
+
+<ellipse cx="400" cy="870" rx="260" ry="26" fill="#6B5A3E" opacity=".16" filter="url(#soft6f81)"/>
+<g transform="translate(400 500) scale(1) rotate(0) translate(-400 -500)">
+<ellipse cx="400" cy="465" rx="230" ry="95" fill="none" stroke="url(#mv6f81)" stroke-width="30"/>
+        <ellipse cx="400" cy="459" rx="230" ry="95" fill="none" stroke="url(#m6f81)" stroke-width="22"/><ellipse cx="400" cy="535" rx="230" ry="95" fill="none" stroke="url(#mv6f81)" stroke-width="30"/>
+        <ellipse cx="400" cy="529" rx="230" ry="95" fill="none" stroke="url(#m6f81)" stroke-width="22"/>
+</g>
+<text x="770" y="975" text-anchor="end" font-family="Georgia, serif" font-size="18" letter-spacing="2" fill="#9B8F7D" opacity=".85">ILLUSTRATION</text>
+</svg>

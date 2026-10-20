@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img">
+<defs>
+  <linearGradient id="m2pnc" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FBFBFB"/><stop offset=".35" stop-color="#D2D6DB"/>
+    <stop offset=".62" stop-color="#8F959D"/><stop offset=".85" stop-color="#E9EBEE"/><stop offset="1" stop-color="#646A72"/>
+  </linearGradient>
+  <linearGradient id="mv2pnc" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#E9EBEE"/><stop offset=".5" stop-color="#8F959D"/><stop offset="1" stop-color="#646A72"/>
+  </linearGradient>
+  
+  <radialGradient id="beads2pnc" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#5a5a5a"/><stop offset="1" stop-color="#0b0b0b"/></radialGradient>
+  <filter id="soft2pnc" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="14"/></filter>
+  <filter id="glow2pnc" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+  <radialGradient id="bg2pnc" cx=".5" cy=".42" r=".75"><stop offset="0" stop-color="#FBF7F1"/><stop offset="1" stop-color="#EFE5D6"/></radialGradient>
+</defs>
+<rect width="800" height="1000" fill="url(#bg2pnc)"/>
+
+<ellipse cx="400" cy="870" rx="260" ry="26" fill="#6B5A3E" opacity=".16" filter="url(#soft2pnc)"/>
+<g transform="translate(400 500) scale(1) rotate(0) translate(-400 -500)">
+<ellipse cx="400" cy="500" rx="250" ry="110" fill="none" stroke="url(#m2pnc)" stroke-width="12"/><rect x="639" y="491" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="632.7227277189681" y="515.495128370525" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="614.2061440541943" y="538.7601560183251" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="584.3801181047047" y="559.6267556380325" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="544.7424585580679" y="577.0470446105097" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="497.28369646674076" y="590.1462077590008" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="444.3871244048669" y="598.2664289736119" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="388.7091118569711" y="600.9999255379724" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="333.0457071816922" y="598.2094262343722" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="280.1922251569181" y="590.0350648542412" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="232.80287136401" y="576.8873429344326" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="193.25745281880955" y="559.4265151178735" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="163.5418683987216" y="538.5294323682181" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="145.1483806189051" y="515.2455081118571" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="139.00067692729405" y="490.7440186074155" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="145.40748380369118" y="466.25538402217484" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="164.0470630783755" y="443.0093789727933" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="193.98336903685842" y="422.17337548440037" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="233.71305493042254" y="404.7937196941576" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="281.2409683111174" y="391.74318625443266" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="334.1803439530241" y="383.67714917973643" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="389.8726628538058" y="381.00067015764307" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="445.52115821584454" y="383.84815708876175" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="498.33126397980215" y="392.076614366826" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="545.650952841115" y="405.2728238575378" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="585.1039162298938" y="422.7740959604913" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="614.708898198259" y="443.70154867364926" width="22" height="18" rx="6" fill="url(#m2pnc)"/><rect x="632.9791904846868" y="467.00424344638026" width="22" height="18" rx="6" fill="url(#m2pnc)"/>
+</g>
+<text x="770" y="975" text-anchor="end" font-family="Georgia, serif" font-size="18" letter-spacing="2" fill="#9B8F7D" opacity=".85">ILLUSTRATION</text>
+</svg>

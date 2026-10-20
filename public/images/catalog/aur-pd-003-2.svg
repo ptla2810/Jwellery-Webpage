@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img">
+<defs>
+  <linearGradient id="mdq1p" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FFFFFF"/><stop offset=".35" stop-color="#DCDFE5"/>
+    <stop offset=".62" stop-color="#9EA4AF"/><stop offset=".85" stop-color="#F0F2F5"/><stop offset="1" stop-color="#6F7682"/>
+  </linearGradient>
+  <linearGradient id="mvdq1p" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F0F2F5"/><stop offset=".5" stop-color="#9EA4AF"/><stop offset="1" stop-color="#6F7682"/>
+  </linearGradient>
+  <radialGradient id="sdq1p" cx=".38" cy=".32" r=".75">
+    <stop offset="0" stop-color="#6E9BF0"/><stop offset=".55" stop-color="#1E4FBF"/><stop offset="1" stop-color="#0A2463"/>
+  </radialGradient>
+  <radialGradient id="beadsdq1p" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#5a5a5a"/><stop offset="1" stop-color="#0b0b0b"/></radialGradient>
+  <filter id="softdq1p" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="14"/></filter>
+  <filter id="glowdq1p" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+  <radialGradient id="bgdq1p" cx=".5" cy=".42" r=".75"><stop offset="0" stop-color="#F6ECE4"/><stop offset="1" stop-color="#E6D3C4"/></radialGradient>
+</defs>
+<rect width="800" height="1000" fill="url(#bgdq1p)"/>
+
+<ellipse cx="400" cy="870" rx="260" ry="26" fill="#6B4E3E" opacity=".16" filter="url(#softdq1p)"/>
+<g transform="translate(400 500) scale(1.22) rotate(-8) translate(-400 -500)">
+<path d="M200 120 L400 432 L600 120" fill="none" stroke="url(#mdq1p)" stroke-width="5"/>
+        <rect x="388" y="420" width="24" height="34" rx="9" fill="none" stroke="url(#mdq1p)" stroke-width="7"/><path d="M400 640 C 300 560, 300 470, 350 450 C 380 440, 400 465, 400 480 C 400 465, 420 440, 450 450 C 500 470, 500 560, 400 640 Z" fill="url(#mdq1p)"/><circle cx="400" cy="535" r="28" fill="url(#sdq1p)"/><ellipse cx="393" cy="526.6" rx="9.799999999999999" ry="5.04" fill="#fff" opacity=".45" transform="rotate(-30 400 535)"/><circle cx="419.40301007575886" cy="554.4030100757589" r="4.48" fill="url(#mdq1p)"/><circle cx="380.59698992424114" cy="554.4030100757589" r="4.48" fill="url(#mdq1p)"/><circle cx="380.59698992424114" cy="515.5969899242411" r="4.48" fill="url(#mdq1p)"/><circle cx="419.40301007575886" cy="515.5969899242411" r="4.48" fill="url(#mdq1p)"/>
+</g>
+<text x="770" y="975" text-anchor="end" font-family="Georgia, serif" font-size="18" letter-spacing="2" fill="#957F6E" opacity=".85">ILLUSTRATION</text>
+</svg>

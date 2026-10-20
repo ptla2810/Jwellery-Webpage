@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 500" width="1600" height="500" role="img" preserveAspectRatio="xMidYMid slice">
+<defs><radialGradient id="bg7eos" cx=".62" cy=".45" r=".85"><stop offset="0" stop-color="#FBF7F0"/><stop offset="1" stop-color="#EADFCF"/></radialGradient></defs>
+<rect width="100%" height="100%" fill="url(#bg7eos)"/>
+<circle cx="1088" cy="250" r="210" fill="none" stroke="#B08D57" stroke-opacity="0.3" stroke-width="1.5"/>
+<circle cx="1088" cy="250" r="230" fill="none" stroke="#B08D57" stroke-opacity="0.15" stroke-width="1"/>
+<defs>
+  <linearGradient id="m7eos0" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FFF3C4"/><stop offset=".35" stop-color="#EBC866"/>
+    <stop offset=".62" stop-color="#B98A2E"/><stop offset=".85" stop-color="#F6D98A"/><stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <linearGradient id="mv7eos0" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F6D98A"/><stop offset=".5" stop-color="#B98A2E"/><stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  
+  <radialGradient id="beads7eos0" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#5a5a5a"/><stop offset="1" stop-color="#0b0b0b"/></radialGradient>
+  <filter id="soft7eos0" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="14"/></filter>
+  <filter id="glow7eos0" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter></defs><g transform="translate(1150 260) scale(0.42) rotate(0) translate(-400 -500)"><circle cx="270" cy="420" r="120" fill="none" stroke="url(#m7eos0)" stroke-width="20"/><circle cx="530" cy="420" r="120" fill="none" stroke="url(#m7eos0)" stroke-width="20"/></g>
+<text x="1576" y="480" text-anchor="end" font-family="Georgia, serif" font-size="14" letter-spacing="2" fill="#B08D57" opacity=".8">ILLUSTRATION</text>
+</svg>

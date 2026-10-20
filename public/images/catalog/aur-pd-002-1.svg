@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img">
+<defs>
+  <linearGradient id="m7pgz" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FFF3C4"/><stop offset=".35" stop-color="#EBC866"/>
+    <stop offset=".62" stop-color="#B98A2E"/><stop offset=".85" stop-color="#F6D98A"/><stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <linearGradient id="mv7pgz" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F6D98A"/><stop offset=".5" stop-color="#B98A2E"/><stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <radialGradient id="s7pgz" cx=".38" cy=".32" r=".75">
+    <stop offset="0" stop-color="#FFFFFF"/><stop offset=".55" stop-color="#E3EEF7"/><stop offset="1" stop-color="#A9C3D9"/>
+  </radialGradient>
+  <radialGradient id="beads7pgz" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#5a5a5a"/><stop offset="1" stop-color="#0b0b0b"/></radialGradient>
+  <filter id="soft7pgz" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="14"/></filter>
+  <filter id="glow7pgz" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+  <radialGradient id="bg7pgz" cx=".5" cy=".42" r=".75"><stop offset="0" stop-color="#FBF7F1"/><stop offset="1" stop-color="#EFE5D6"/></radialGradient>
+</defs>
+<rect width="800" height="1000" fill="url(#bg7pgz)"/>
+
+<ellipse cx="400" cy="870" rx="260" ry="26" fill="#6B5A3E" opacity=".16" filter="url(#soft7pgz)"/>
+<g transform="translate(400 500) scale(1) rotate(0) translate(-400 -500)">
+<path d="M200 120 L400 432 L600 120" fill="none" stroke="url(#m7pgz)" stroke-width="5"/>
+        <rect x="388" y="420" width="24" height="34" rx="9" fill="none" stroke="url(#m7pgz)" stroke-width="7"/><circle cx="400" cy="540" r="92" fill="url(#m7pgz)"/><circle cx="400" cy="540" r="70" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="4"/><circle cx="400" cy="540" r="36" fill="url(#s7pgz)"/><polygon points="419.8,540 414.00071426749366,554.0007142674937 400,559.8 385.99928573250634,554.0007142674937 380.2,540 385.99928573250634,525.9992857325063 400,520.2 414.00071426749366,525.9992857325063" fill="none" stroke="#9fb7cc" stroke-width="1.44" opacity=".8"/><line x1="419.8" y1="540" x2="435.64000000000004" y2="540" stroke="#a8c0d4" stroke-width="1.08" opacity=".7"/><line x1="414.00071426749366" y1="554.0007142674937" x2="425.20128568148857" y2="565.2012856814886" stroke="#a8c0d4" stroke-width="1.08" opacity=".7"/><line x1="400" y1="559.8" x2="400" y2="575.6399999999999" stroke="#a8c0d4" stroke-width="1.08" opacity=".7"/><line x1="385.99928573250634" y1="554.0007142674937" x2="374.79871431851143" y2="565.2012856814886" stroke="#a8c0d4" stroke-width="1.08" opacity=".7"/><line x1="380.2" y1="540" x2="364.35999999999996" y2="540" stroke="#a8c0d4" stroke-width="1.08" opacity=".7"/><line x1="385.99928573250634" y1="525.9992857325063" x2="374.79871431851143" y2="514.7987143185114" stroke="#a8c0d4" stroke-width="1.08" opacity=".7"/><line x1="400" y1="520.2" x2="400" y2="504.36000000000007" stroke="#a8c0d4" stroke-width="1.08" opacity=".7"/><line x1="414.00071426749366" y1="525.9992857325063" x2="425.20128568148857" y2="514.7987143185114" stroke="#a8c0d4" stroke-width="1.08" opacity=".7"/><circle cx="387.4" cy="525.6" r="4.32" fill="#fff" filter="url(#glow7pgz)"/><circle cx="424.9467272402614" cy="564.9467272402615" r="5.76" fill="url(#m7pgz)"/><circle cx="375.0532727597386" cy="564.9467272402615" r="5.76" fill="url(#m7pgz)"/><circle cx="375.0532727597386" cy="515.0532727597385" r="5.76" fill="url(#m7pgz)"/><circle cx="424.9467272402614" cy="515.0532727597385" r="5.76" fill="url(#m7pgz)"/>
+</g>
+<text x="770" y="975" text-anchor="end" font-family="Georgia, serif" font-size="18" letter-spacing="2" fill="#9B8F7D" opacity=".85">ILLUSTRATION</text>
+</svg>

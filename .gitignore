@@ -1,0 +1,17 @@
+node_modules
+.next
+out
+.env
+.env*.local
+.pgdata
+.pgdata-test
+*.tsbuildinfo
+next-env.d.ts
+coverage
+playwright-report
+test-results
+public/uploads/*
+!public/uploads/.gitkeep
+.DS_Store
+uploads
+tests/e2e/.auth

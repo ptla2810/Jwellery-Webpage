@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" width="900" height="1100" role="img" preserveAspectRatio="xMidYMid slice">
+<defs><radialGradient id="bgnwn" cx=".62" cy=".45" r=".85"><stop offset="0" stop-color="#F3E7D1"/><stop offset="1" stop-color="#DCC7A2"/></radialGradient></defs>
+<rect width="100%" height="100%" fill="url(#bgnwn)"/>
+<circle cx="612" cy="550" r="378" fill="none" stroke="#8E6E3A" stroke-opacity="0.3" stroke-width="1.5"/>
+<circle cx="612" cy="550" r="414" fill="none" stroke="#8E6E3A" stroke-opacity="0.15" stroke-width="1"/>
+<defs>
+  <linearGradient id="mnwn0" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FFF3C4"/><stop offset=".35" stop-color="#EBC866"/>
+    <stop offset=".62" stop-color="#B98A2E"/><stop offset=".85" stop-color="#F6D98A"/><stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  <linearGradient id="mvnwn0" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F6D98A"/><stop offset=".5" stop-color="#B98A2E"/><stop offset="1" stop-color="#8A6420"/>
+  </linearGradient>
+  
+  <radialGradient id="beadsnwn0" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#5a5a5a"/><stop offset="1" stop-color="#0b0b0b"/></radialGradient>
+  <filter id="softnwn0" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="14"/></filter>
+  <filter id="glownwn0" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter></defs><g transform="translate(450 560) scale(0.9) rotate(0) translate(-400 -500)"><ellipse cx="400" cy="465" rx="230" ry="95" fill="none" stroke="url(#mvnwn0)" stroke-width="30"/>
+        <ellipse cx="400" cy="459" rx="230" ry="95" fill="none" stroke="url(#mnwn0)" stroke-width="22"/><ellipse cx="400" cy="535" rx="230" ry="95" fill="none" stroke="url(#mvnwn0)" stroke-width="30"/>
+        <ellipse cx="400" cy="529" rx="230" ry="95" fill="none" stroke="url(#mnwn0)" stroke-width="22"/></g>
+<text x="876" y="1080" text-anchor="end" font-family="Georgia, serif" font-size="14" letter-spacing="2" fill="#8E6E3A" opacity=".8">ILLUSTRATION</text>
+</svg>
